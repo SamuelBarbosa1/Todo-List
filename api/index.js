@@ -15,7 +15,7 @@ const jwt = require("jsonwebtoken");
 
 mongoose
   .connect(
-    "mongodb+srv:mongodb+srv://samuel:YvRfomQKf5Jarm9x@cluster0.qnuva5l.mongodb.net/"
+    "mongodb+srv://samuel:9RnHZj7AEG9pbExX@cluster0.qnuva5l.mongodb.net/"
   )
   .then(() => {
     console.log("Conectado ao MongoDb");
@@ -36,7 +36,7 @@ app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
 
     ///check if email is already registered
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({email});
     if (existingUser) {
       console.log("Email já registrado");
     }
