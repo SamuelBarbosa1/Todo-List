@@ -26,7 +26,7 @@ import axios from "axios";
             password:password
         }
 
-      axios.post("http://localhost:3000/register",user).then((response) => {
+      axios.post("http://192.168.56.1:3000/register",user).then((response) => {
           console.log(response);
           Alert.alert("Registro realizado com sucesso","Você foi registrado com sucesso");
           setEmail("");
