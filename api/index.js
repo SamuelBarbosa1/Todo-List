@@ -15,7 +15,7 @@ const jwt = require("jsonwebtoken");
 
 mongoose
   .connect(
-    "mongodb+srv://samuel:iZVIZ61gQG8jnqmG@cluster0.qnuva5l.mongodb.net/"
+    "mongodb+srv://samuel:trav1234@cluster0.qnuva5l.mongodb.net/"
   )
   .then(() => {
     console.log("Conectado ao MongoDb");
@@ -36,7 +36,7 @@ app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
 
     ///check if email is already registered
-    const existingUser = await User.findOne({email});
+    const existingUser = await User.findOne({ email })
     if (existingUser) {
       console.log("Email já registrado");
     }
@@ -64,10 +64,11 @@ const generateSecretKey = () => {
 
 const secretKey = generateSecretKey();
 
-app.post("/login", async (req, rest) => {
+app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne(email);
+
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Email inválido" });
     }
@@ -78,9 +79,9 @@ app.post("/login", async (req, rest) => {
 
     const token = jwt.sign({ userId: user._id }, secretKey);
 
-    res.status(200).json(token);
+    res.status(200).json({ token });
   } catch (error) {
     console.log("Login falhou", error);
-    res.status(500).json({ message: "Login falhou" });
+    res.status(500).json({ message: "Falha no login" });
   }
 });

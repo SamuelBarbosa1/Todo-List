@@ -38,11 +38,11 @@ const login = () => {
     };
 
     axios.post("http://192.168.56.1:3000/login", user).then((response) => {
+      console.log(response);
       const token = response.data.token;
-      console.log("token",token)
-      AsyncStorage.setItem("authToken", token);
-      router.replace("/(tabs)/home");
-    });
+      AsyncStorage.setItem("authToken",token);
+      router.replace("/(tabs)/home")
+  })
   };
   return (
     <SafeAreaView
