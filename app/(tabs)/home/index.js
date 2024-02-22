@@ -5,12 +5,19 @@ import {
   Text,
   View,
   Image,
+  TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { ModalContent, ModalTitle } from "react-native-modals";
+import { SlideAnimation } from "react-native-modals";
+import { BottomModal } from "react-native-modals"
+
 
 const index = () => {
   const todos = [];
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [todo, setTodo] = useState("")
   return (
     <>
       <View
@@ -94,13 +101,38 @@ const index = () => {
               >
                 Sem Tarefas por hoje! adicione uma tarefa
               </Text>
-              <Pressable style={{marginTop:15}}>
+              <Pressable style={{ marginTop: 15 }}>
                 <AntDesign name="pluscircle" size={30} color="#7CB9E8" />
               </Pressable>
             </View>
           )}
         </View>
       </ScrollView>
+
+      <BottomModal
+        onBackdropPress={() => setModalVisible(!isModalVisible)}
+        onHardwareBackPress={() => setModalVisible(!isModalVisible)}
+        swipeDirection={["up", "down"]}
+        swipeThreshold={200}
+        modalTitle={<ModalTitle title="Add a todo" />}
+        modalAnimation={
+          new SlideAnimation({
+            slideFrom: "bottom",
+          })
+        }
+        visible={isModalVisible}
+        onTouchOutside={() => setModalVisible(!isModalVisible)}
+      >
+        <ModalContent style={{ width: "100%", height: 280 }}>
+          <View>
+            <TextInput
+              value={todo}
+              onChangeText={(text) => setTodo(text)}
+              placeholder="Insira uma nova tarefa aqui"
+            />
+          </View>
+        </ModalContent>
+      </BottomModal>
     </>
   );
 };
