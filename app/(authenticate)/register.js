@@ -14,17 +14,17 @@ import { AntDesign ,Ionicons} from "@expo/vector-icons";
 import { useRouter, } from "expo-router";
 import axios from "axios";
 
-  const register = () => {
-    const [name,setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const router = useRouter();
-    const handleRegister = () => {
-        const user = { 
-            name:name,
-            email:email,
-            password:password
-        }
+const register = () => {
+  const [name,setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const handleRegister = () => {
+      const user = { 
+          name:name,
+          email:email,
+          password:password
+      }
 
       axios.post("http://192.168.56.1:3000/register",user).then((response) => {
           console.log(response);
@@ -49,7 +49,7 @@ import axios from "axios";
       <KeyboardAvoidingView>
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 16, fontWeight: "600", marginTop: 20 }}>
-          cadastre-se em sua conta
+          Cadastre-se em sua conta
           </Text>
         </View>
 
@@ -136,7 +136,7 @@ import axios from "axios";
                 width: 300,
                 fontSize: email ? 17 : 17,
               }}
-              placeholder="Digite sua senha"
+              placeholder="Digite seu nome"
             />
           </View>
 
@@ -162,13 +162,13 @@ import axios from "axios";
                 fontSize: 16,
               }}
             >
-              Cadastra-se
+              Register
             </Text>
           </Pressable>
 
           <Pressable onPress={() => router.replace("/login")} style={{ marginTop: 15 }}>
             <Text style={{ textAlign: "center", fontSize: 15, color: "gray" }}>
-            já tem uma conta? inscrever-se
+            Já tem uma conta? inscrever-se
             </Text>
           </Pressable>
         </View>

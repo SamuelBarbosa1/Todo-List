@@ -7,7 +7,7 @@ import {
   TextInput,
   Pressable,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -38,26 +38,25 @@ const login = () => {
     };
 
     axios.post("http://192.168.56.1:3000/login", user).then((response) => {
-          console.log(response);
-          const token = response.data.token;
-          AsyncStorage.setItem("authToken",token);
-          router.replace("/(tabs)/home")
-      })
+      const token = response.data.token;
+      console.log("token",token)
+      AsyncStorage.setItem("authToken", token);
+      router.replace("/(tabs)/home");
+    });
   };
-
   return (
     <SafeAreaView
       style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
     >
       <View style={{ marginTop: 80 }}>
-        <Text style={{ fontSize: 16, fontWeight: "600", color: "#0066b2" }}>
-          LISTA DE TAREFAS
+        <Text style={{ fontSize: 18, fontWeight: "600", color: "#0066b2" }}>
+         LISTA DE TAREFAS
         </Text>
       </View>
       <KeyboardAvoidingView>
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 16, fontWeight: "600", marginTop: 20 }}>
-            Faça login na sua conta
+          Faça login na sua conta
           </Text>
         </View>
 
@@ -69,7 +68,7 @@ const login = () => {
               gap: 5,
               backgroundColor: "#E0E0E0",
               paddingVertical: 5,
-              borderRadius: 15,
+              borderRadius: 5,
               marginTop: 30,
             }}
           >
@@ -99,7 +98,7 @@ const login = () => {
               gap: 5,
               backgroundColor: "#E0E0E0",
               paddingVertical: 5,
-              borderRadius: 15,
+              borderRadius: 5,
               marginTop: 30,
             }}
           >
@@ -131,13 +130,13 @@ const login = () => {
               justifyContent: "space-between",
             }}
           >
-            <Text>Mantenha-me Conectado</Text>
+            <Text>Mantenha-me conectado</Text>
             <Text style={{ color: "#007FFF", fontWeight: "500" }}>
-              Esqueceu sua Senha
+            Esqueceu sua senha
             </Text>
           </View>
 
-          <View style={{ marginTop: 50 }} />
+          <View style={{ marginTop: 60 }} />
 
           <Pressable
             onPress={handleLogin}
@@ -145,7 +144,7 @@ const login = () => {
               width: 200,
               backgroundColor: "#6699CC",
               padding: 15,
-              borderRadius: 15,
+              borderRadius: 6,
               marginLeft: "auto",
               marginRight: "auto",
             }}
@@ -167,7 +166,7 @@ const login = () => {
             style={{ marginTop: 15 }}
           >
             <Text style={{ textAlign: "center", fontSize: 15, color: "gray" }}>
-              Não tem uma conta? Registre-se
+            Não tem uma conta? Inscrever-se
             </Text>
           </Pressable>
         </View>
