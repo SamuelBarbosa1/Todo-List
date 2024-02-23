@@ -150,3 +150,37 @@ app.patch("/todos/:todoId/complete", async (req, res) => {
     res.status(500).json({ error: "Algo deu errado" });
   }
 });
+
+app.get("/todos/completed/:date", async (req, res) => {
+  try {
+    const date = req.params.date;
+
+    const completedTodos = await Todo.find({
+      status: "completed",
+      createdAt: {
+        $gte: new Date(`${date}T00:00:00.000Z`), // COMEÇAR NA DATA SELECIONADA
+        $lt: new Date(`${date}T23:59:59.999Z`), // FIM NA DATA SELECIONADA
+      },
+    }).exec();
+
+    res.status(200).json({ completedTodos });
+  } catch (error) {
+    res.status(500).json({ error: "Algo deu errado" });
+  }
+});
+
+app.get("/todos/count", async (req, res) => {
+  try {
+    const totalCompletedTodos = await Todo.countDocuments({
+      status: "completed", // completo
+    }).exec();
+
+    const totalPendingTodos = await Todo.countDocuments({
+      status: "pending", // pedente
+    }).exec();
+
+    res.status(200).json({ totalCompletedTodos, totalPendingTodos });
+  } catch (error) {
+    res.status(500).json({ error: "Falha na rede" });
+  }
+});
