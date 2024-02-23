@@ -8,7 +8,7 @@ import {
   TextInput,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import { AntDesign, Feather, Entypo } from "@expo/vector-icons";
+import { AntDesign, Feather, Entypo, FontAwesome } from "@expo/vector-icons";
 import { ModalContent, ModalTitle } from "react-native-modals";
 import { SlideAnimation } from "react-native-modals";
 import { BottomModal } from "react-native-modals";
@@ -71,6 +71,7 @@ const index = () => {
           console.log("error", error);
         });
 
+      await getUserTodo();
       setModalVisible(false);
       setTodo("");
     } catch (error) {
@@ -79,7 +80,7 @@ const index = () => {
   };
   useEffect(() => {
     getUserTodo();
-  }, []);
+  }, [marked, isModalVisible]);
   const getUserTodo = async () => {
     try {
       const response = await axios.get(
@@ -194,7 +195,12 @@ const index = () => {
                       gap: 10,
                     }}
                   >
-                    <Entypo name="circle" size={18} color="black" />
+                    <Entypo
+                      onPress={() => markTodoAsCompleted(item?._id)}
+                      name="circle"
+                      size={18}
+                      color="black"
+                    />
                     <Text style={{ flex: 1 }}>{item?.title}</Text>
                     <Feather name="flag" size={20} color="black" />
                   </View>
@@ -233,6 +239,38 @@ const index = () => {
                       color="black"
                     />
                   </View>
+
+                  {completedTodos?.map((item, index) => (
+                    <Pressable
+                      style={{
+                        backgroundColor: "#E0E0E0",
+                        padding: 10,
+                        borderRadius: 10,
+                        marginVertical: 10,
+                      }}
+                      key={index}
+                    >
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          alignItems: "center",
+                          gap: 10,
+                        }}
+                      >
+                        <FontAwesome name="circle" size={18} color="gray" />
+                        <Text
+                          style={{
+                            flex: 1,
+                            textDecorationLine: "line-through",
+                            color: "gray",
+                          }}
+                        >
+                          {item?.title}
+                        </Text>
+                        <Feather name="flag" size={20} color="gray" />
+                      </View>
+                    </Pressable>
+                  ))}
                 </View>
               )}
             </View>
@@ -394,3 +432,5 @@ const index = () => {
 export default index;
 
 const styles = StyleSheet.create({});
+
+//
