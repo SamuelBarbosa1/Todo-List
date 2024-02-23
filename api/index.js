@@ -12,11 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const jwt = require("jsonwebtoken");
+const moment = require("moment");
 
 mongoose
-  .connect(
-    "mongodb+srv://samuel:trav1234@cluster0.qnuva5l.mongodb.net/"
-  )
+  .connect("mongodb+srv://samuel:trav1234@cluster0.qnuva5l.mongodb.net/")
   .then(() => {
     console.log("Conectado ao MongoDb");
   })
@@ -36,7 +35,7 @@ app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
 
     ///check if email is already registered
-    const existingUser = await User.findOne({ email })
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       console.log("Email já registrado");
     }
@@ -83,5 +82,71 @@ app.post("/login", async (req, res) => {
   } catch (error) {
     console.log("Login falhou", error);
     res.status(500).json({ message: "Falha no login" });
+  }
+});
+
+app.post("/todos/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const { title, category } = req.body;
+
+    const newTodo = new Todo({
+      title,
+      category,
+      dueDate: moment().format("YYYY-MM-DD"),
+    });
+
+    await newTodo.save();
+
+    const user = await User.findById(userId);
+    if (!user) {
+      res.status(404).json({ error: "Usuário não encontrado" });
+    }
+
+    user?.todos.push(newTodo._id);
+    await user.save();
+
+    res
+      .status(200)
+      .json({ message: "Tarefa adicionada com sucesso", todo: newTodo });
+  } catch (error) {
+    res.status(200).json({ message: "Tarefa não adicionada" });
+  }
+});
+
+app.get("/users/:userId/todos", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate("todos");
+    if (!user) {
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+    res.status(200).json({ todos: user.todos });
+  } catch (error) {
+    res.status(500).json({ error: "Algo deu errado" });
+  }
+});
+
+app.patch("/todos/:todoId/complete", async (req, res) => {
+  try {
+    const todoId = req.params.todoId;
+
+    const updatedTodo = await Todo.findByIdAndUpdate(
+      todoId,
+      {
+        status: "completed",
+      },
+      { new: true }
+    );
+
+    if (!updatedTodo) {
+      return res.status(404).json({ error: "Tarefa não encontrada" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Tarefa marcado como concluido", todo: updatedTodo });
+  } catch (error) {
+    res.status(500).json({ error: "Algo deu errado" });
   }
 });

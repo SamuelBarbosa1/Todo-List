@@ -15,17 +15,17 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-// limpar o cache do AsyncStorage
-const clearAsyncStorage = async () => {
+ //limpar o cache do AsyncStorage
+ const clearAsyncStorage = async () => {
   try {
-    await AsyncStorage.clear();
-    console.log('Cache do AsyncStorage limpo com sucesso!');
-  } catch (error) {
-    console.error('Erro ao limpar o cache do AsyncStorage:', error);
+   await AsyncStorage.clear();
+   console.log('Cache do AsyncStorage limpo com sucesso!');
+ } catch (error) {
+   console.error('Erro ao limpar o cache do AsyncStorage:', error);
   }
-};
+ };
 
-clearAsyncStorage();
+//  clearAsyncStorage();
 
 const login = () => {
   const [email, setEmail] = useState("");
