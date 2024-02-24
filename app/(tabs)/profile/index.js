@@ -52,7 +52,7 @@ const index = () => {
           <View
             style={{
               backgroundColor: "#89CFF0",
-              padding: 10,
+              padding: 5,
               borderRadius: 8,
               flex: 1,
               justifyContent: "center",
@@ -68,17 +68,17 @@ const index = () => {
           </View>
 
           <View
-            style={{
-              backgroundColor: "#89CFF0",
-              padding: 10,
-              borderRadius: 8,
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+           style={{
+            backgroundColor: "#89CFF0",
+            padding: 5,
+            borderRadius: 8,
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
           >
             <Text
-              style={{ textAlign: "center", fontSize: 16, fontWeight: "bold" }}
+              style={{ textAlign: "center", fontSize: 18, fontWeight: "bold" }}
             >
               {pendingTasks}
             </Text>
