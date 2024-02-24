@@ -34,7 +34,7 @@ app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    ///check if email is already registered
+    ///Verifique seu email
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       console.log("Email já registrado");
