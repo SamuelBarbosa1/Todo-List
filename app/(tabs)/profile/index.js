@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const index = () => {
   const [completedTasks, setCompletedTask] = useState(0);
   const [pendingTasks, setPendingTasks] = useState(0);
@@ -19,7 +20,7 @@ const index = () => {
   useEffect(() => {
     fetchTaskData();
   }, []);
-  console.log("comp", completedTasks);
+  console.log("completed", completedTasks);
   console.log("pending", pendingTasks);
   return (
     <View style={{ padding: 10, flex: 1, backgroundColor: "white" }}>
@@ -82,10 +83,11 @@ const index = () => {
             >
               {pendingTasks}
             </Text>
-            <Text>Tarefas pendentes</Text>
+            <Text style={{marginTop:4}}>Tarefas pendentes</Text>
           </View>
         </View>
       </View>
+
     </View>
   );
 };
