@@ -184,3 +184,5 @@ app.get("/todos/count", async (req, res) => {
     res.status(500).json({ error: "Falha na rede" });
   }
 });
+
+// finalizado
