@@ -70,6 +70,9 @@ npx expo start
 <img src="https://img.shields.io/badge/javascript-007ACC?style=for-the-badge&logo=javascript&logoColor=white" />
 <img src="https://img.shields.io/badge/Express-lightgrey?style=for-the-badge&logo=express&logoColor=white" />
 <img src="https://img.shields.io/badge/MongoDB-lightgreen?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img src="https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-blue?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Mongoose-Node.js%20ODM-yellow?style=for-the-badge&logo=node.js&logoColor=white" />
+<img src="https://img.shields.io/badge/Crypto-Node.js%20Library-9cf?style=for-the-badge&logo=node.js&logoColor=white" />
 
 </div>
 
