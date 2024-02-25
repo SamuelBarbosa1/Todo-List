@@ -63,7 +63,7 @@ const index = () => {
 
       axios
         .post(
-          "http://192.168.56.1:3000/todos/65db8d23adc3c935dbe25e6e", // colocar o ip´do user "65d894059a7e9074809f7e9e"
+          "http:/#:3000/todos/65db8d23adc3c935dbe25e6e", //  Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/todos/, esse "65db8d23adc3c935dbe25e6e" e o usuario cadastrado
           todoData
         ) // colocar IP
         .then((response) => {
@@ -86,7 +86,7 @@ const index = () => {
   const getUserTodo = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.56.1:3000/users/65db8d23adc3c935dbe25e6e/todos` // colocar o ip do user "65d894059a7e9074809f7e9e"
+        `http:/#:3000/users/65db8d23adc3c935dbe25e6e/todos` //Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/todos/
       );
 
       console.log(response.data.todos);
@@ -111,7 +111,7 @@ const index = () => {
     try {
       setMarked(true);
       const response = await axios.patch(
-        `http://192.168.56.1:3000/todos/${todoId}/complete`
+        `http://#:3000/todos/${todoId}/complete` //Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/todos/completed
       );
       console.log(response.data);
     } catch (error) {

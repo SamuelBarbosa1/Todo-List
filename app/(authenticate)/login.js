@@ -49,7 +49,7 @@ const login = () => {
       password: password,
     };
 
-    axios.post("http://192.168.56.1:3000/login", user).then((response) => {
+    axios.post("http://#:3000/login", user).then((response) => { // Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/login"
       console.log(response);
       const token = response.data.token;
       AsyncStorage.setItem("authToken",token);

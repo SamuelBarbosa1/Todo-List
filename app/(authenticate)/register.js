@@ -26,7 +26,7 @@ const register = () => {
           password:password
       }
 
-      axios.post("http://192.168.56.1:3000/register",user).then((response) => {
+      axios.post("http://#/register",user).then((response) => { // Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/register
           console.log(response);
           Alert.alert("Registro realizado com sucesso","Você foi registrado com sucesso");
           setEmail("");

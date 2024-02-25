@@ -9,7 +9,7 @@ const index = () => {
 
   const fetchTaskData = async () => {
     try {
-      const response = await axios.get("http://192.168.56.1:3000/todos/count");
+      const response = await axios.get("http://#:3000/todos/count"); //Colocar seu Ip exemplo  ""http://xxx.xxx.xx.x:3000/todos/count"
       const { totalCompletedTodos, totalPendingTodos } = response.data;
       setCompletedTasks(totalCompletedTodos);
       setPendingTasks(totalPendingTodos);
