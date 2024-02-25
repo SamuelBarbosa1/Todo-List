@@ -11,3 +11,5 @@ const index = () => {
 export default index
 
 const styles = StyleSheet.create({})
+
+// corrigo os bugs
