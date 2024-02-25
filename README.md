@@ -42,6 +42,7 @@ yarn install
 Go to mongodb
 
 ```
+package.json ""scripts": {start": "nodemon index.js",},"
 cd api
 yarn start
 [nodemon] 3.0.3
