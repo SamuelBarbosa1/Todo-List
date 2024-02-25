@@ -37,6 +37,7 @@ Run the command to install all packages:
 
 ```
 npm install
+yarn install
 ```
 Go to mongodb
 
