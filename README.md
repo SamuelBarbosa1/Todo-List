@@ -7,7 +7,7 @@ The project is still under development and the next updates will focus on the fo
 - ✅Add a new task
 - ✅Mark and unmark a task as completed
 - ✅Remove a task from the list
-- ✅Save data using AsyncStorage
+- ✅Save data using AsyncStorage and MongoDB
 - ✅Show task completion progress
 - ✅Shows the date of the day/month and year of the task you did so you don't forget when to complete the task
 - ✅Appears on the profile which tasks have been completed and which are pending and shows a table of which tasks have or have not been completed and etc
