@@ -23,7 +23,7 @@ export default function Layout() {
        <Tabs.Screen
         name="calendar"
         options={{
-          tabBarLabel: "Calendario",
+          tabBarLabel: "calendar",
           tabBarLabelStyle: { color: "#7CB9E8" },
           headerShown:false,
           tabBarIcon:({focused}) => 
@@ -37,7 +37,7 @@ export default function Layout() {
        <Tabs.Screen
         name="profile"
         options={{
-          tabBarLabel: "Perfil",
+          tabBarLabel: "profile",
           tabBarLabelStyle: { color: "#7CB9E8" },
           headerShown:false,
           tabBarIcon:({focused}) => 

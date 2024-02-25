@@ -15,9 +15,11 @@ import { BottomModal } from "react-native-modals";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import axios from "axios";
+import { useRouter} from "expo-router"
 import moment from "moment";
 
 const index = () => {
+  const router = useRouter();
   const [todos, setTodos] = useState([]);
   const today = moment().format("MMM Do");
   const [isModalVisible, setModalVisible] = useState(false);
@@ -180,6 +182,18 @@ const index = () => {
               )}
               {pendingTodos?.map((item, index) => (
                 <Pressable
+                onPress={() => {
+                  router?.push({
+                    pathname: "/home/info",
+                    params: {
+                      id: item._id,
+                      title: item?.title,
+                      category: item?.category,
+                      createdAt: item?.createdAt,
+                      dueDate: item?.dueDate,
+                    },
+                  });
+                }}
                   style={{
                     backgroundColor: "#E0E0E0",
                     padding: 10,
