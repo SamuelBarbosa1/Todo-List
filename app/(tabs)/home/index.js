@@ -63,7 +63,7 @@ const index = () => {
 
       axios
         .post(
-          "http://192.168.56.1:3000/todos/65d894059a7e9074809f7e9e",
+          "http://192.168.56.1:3000/todos/65db8d23adc3c935dbe25e6e", // colocar o ip´do user "65d894059a7e9074809f7e9e"
           todoData
         ) // colocar IP
         .then((response) => {
@@ -86,7 +86,7 @@ const index = () => {
   const getUserTodo = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.56.1:3000/users/65d894059a7e9074809f7e9e/todos`
+        `http://192.168.56.1:3000/users/65db8d23adc3c935dbe25e6e/todos` // colocar o ip do user "65d894059a7e9074809f7e9e"
       );
 
       console.log(response.data.todos);

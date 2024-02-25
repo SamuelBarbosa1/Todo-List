@@ -3,7 +3,7 @@ import React from "react";
 import { Ionicons, Entypo, Feather } from "@expo/vector-icons";
 import { useLocalSearchParams } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { SimpleLineIcons } from "@expo/vector-icons";
 
 const info = () => {
   const params = useLocalSearchParams();
@@ -108,7 +108,7 @@ const info = () => {
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center", gap: 7 }}>
-          <SimpleLineIcons name="note" size={24} color="black" />
+            <SimpleLineIcons name="note" size={24} color="black" />
             <Text>Notas</Text>
           </View>
 
