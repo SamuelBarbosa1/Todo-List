@@ -73,17 +73,17 @@ npx expo start
 <img src="https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-blue?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Mongoose-Node.js%20ODM-yellow?style=for-the-badge&logo=node.js&logoColor=white" />
 <img src="https://img.shields.io/badge/Crypto-Node.js%20Library-9cf?style=for-the-badge&logo=node.js&logoColor=white" />
-
 </div>
 
+* ## 📸 Project Pictures
 <div>
   <p  align="center">
-  <img src="./image/login.png" width=25%>
-  <img src="./image/registro.png" width=25%>
-  <img src="./image/home.png" width=25%>
-  <img src="./image/calendario.png" width=25%>
-  <img src="./image/adicionar tarefa.png" width=25%>
-  <img src="./image/info da tarefa.png" width=25%>
-  <img src="./image/perfil.png" width=25%>
+  <img src="./image/login.png" width=20%>
+  <img src="./image/registro.png" width=20%>
+  <img src="./image/home.png" width=20%>
+  <img src="./image/calendario.png" width=20%>
+  <img src="./image/adicionar tarefa.png" width=20%>
+  <img src="./image/info da tarefa.png" width=20%>
+  <img src="./image/perfil.png" width=20%>
   </p>
 </div>
