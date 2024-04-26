@@ -61,6 +61,28 @@ After installing the packages just run the command:
 ```
 npx expo start
 ```
+## dependencies:
+```
+"@react-native-async-storage/async-storage": "1.21.0",
+        "axios": "^1.6.7",
+        "crypto-js": "^4.2.0",
+        "expo": "~50.0.7",
+        "expo-constants": "~15.4.5",
+        "expo-linking": "~6.2.2",
+        "expo-router": "~3.4.7",
+        "expo-status-bar": "~1.11.1",
+        "jsonwebtoken": "^9.0.2",
+        "moment": "^2.30.1",
+        "mongodb": "^6.3.0",
+        "react": "18.2.0",
+        "react-native": "0.73.4",
+        "react-native-calendars": "^1.1303.0",
+        "react-native-chart-kit": "^6.12.0",
+        "react-native-gesture-handler": "~2.14.0",
+        "react-native-modals": "^0.22.3",
+        "react-native-safe-area-context": "4.8.2",
+        "react-native-screens": "~3.29.0"
+```
 * ## :wrench: technologies used
 <div>
 <img src="https://img.shields.io/badge/React%20Native-61DAFB?style=for-the-badge&logo=react&logoColor=white" /> 
