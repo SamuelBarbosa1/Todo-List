@@ -39,11 +39,11 @@ const register = () => {
   }
   return (
     <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white", alignItems: "center" }}
+      style={{ flex: 1, backgroundColor: "#736bff", alignItems: "center" }} // background geral 
     >
       <View style={{ marginTop: 80 }}>
-        <Text style={{ fontSize: 18, fontWeight: "600", color: "#0066b2" }}>
-          LISTA DE TAREFAS
+        <Text style={{ fontSize: 18, fontWeight: "600", color: "black" }}>  
+          LISTA DE TAREFAS 
         </Text>
       </View>
       <KeyboardAvoidingView>
@@ -52,7 +52,7 @@ const register = () => {
           Cadastre-se em sua conta
           </Text>
         </View>
-
+      
         <View style={{ marginTop: 70 }}>
 
         <View
@@ -60,18 +60,18 @@ const register = () => {
               flexDirection: "row",
               alignItems: "center",
               gap: 5,
-              backgroundColor: "#E0E0E0",
+              backgroundColor: "white", // DIGITE SEU NOME  
               paddingVertical: 5,
               borderRadius: 5,
               marginTop: 30,
             }}
           >
-            <Ionicons style={{marginLeft:8}} name="person" size={24} color="gray" />
+            <Ionicons style={{marginLeft:8}} name="person" size={24} color="black" />
             <TextInput
               value={name}
               onChangeText={(text) => setName(text)}
               style={{
-                color: "gray",
+                color: "black",
                 marginVertical: 10,
                 width: 300,
                 fontSize: email ? 17 : 17,
@@ -84,7 +84,7 @@ const register = () => {
               flexDirection: "row",
               alignItems: "center",
               gap: 5,
-              backgroundColor: "#E0E0E0",
+              backgroundColor: "white", // DIGITE SEU EMAIL
               paddingVertical: 5,
               borderRadius: 5,
               marginTop: 30,
@@ -94,13 +94,13 @@ const register = () => {
               style={{ marginLeft: 8 }}
               name="email"
               size={24}
-              color="gray"
+              color="black"
             />
             <TextInput
               value={email}
               onChangeText={(text) => setEmail(text)}
               style={{
-                color: "gray",
+                color: "black",
                 marginVertical: 10,
                 width: 300,
                 fontSize: email ? 17 : 17,
@@ -114,7 +114,7 @@ const register = () => {
               flexDirection: "row",
               alignItems: "center",
               gap: 5,
-              backgroundColor: "#E0E0E0",
+              backgroundColor: "white", // DIGITE SEU NOME
               paddingVertical: 5,
               borderRadius: 5,
               marginTop: 30,
@@ -124,14 +124,14 @@ const register = () => {
               style={{ marginLeft: 8 }}
               name="lock1"
               size={24}
-              color="gray"
+              color="black"
             />
             <TextInput
               value={password}
               secureTextEntry={true}
               onChangeText={(text) => setPassword(text)}
               style={{
-                color: "gray",
+                color: "black",
                 marginVertical: 10,
                 width: 300,
                 fontSize: email ? 17 : 17,
@@ -147,7 +147,7 @@ const register = () => {
           onPress={handleRegister}
             style={{
               width: 200,
-              backgroundColor: "#6699CC",
+              backgroundColor: "black", // Register
               padding: 15,
               borderRadius: 6,
               marginLeft: "auto",
@@ -162,12 +162,12 @@ const register = () => {
                 fontSize: 16,
               }}
             >
-              Register
+              Cadastra-se
             </Text>
           </Pressable>
 
           <Pressable onPress={() => router.replace("/login")} style={{ marginTop: 15 }}>
-            <Text style={{ textAlign: "center", fontSize: 15, color: "gray" }}>
+            <Text style={{ textAlign: "center", fontSize: 15, color: "black" }}>
             Já tem uma conta? inscrever-se
             </Text>
           </Pressable>
